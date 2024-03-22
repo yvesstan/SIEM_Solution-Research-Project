@@ -21,6 +21,8 @@ With this in mind, research was carried out in order to propose a system which w
 
 The general objective of the project is to generally improve the company's security system, through the implementation of Wazuh which is an open source system allowing us to manage information and security events within the company. an information system. The main ideology is to use a system that is free to provide quality services but above all at lower cost.
 
+https://github.com/yvesstan/images/blob/main/nike-joyride.jpg
+
 ## METHODOLOGICAL APPROACHES
 
 After an in-depth study and analysis of the objectives and expected results, the implementation of a security information and event management system or S.I.E.M. (Security Information and Event Management) will attract attention. The methodological approach followed is this: after a bibliographic research to study the generalities, the existing solutions and the different necessary tools, we carried out an analysis of the company's network architecture with a view to proposing one. new for the implementation of the chosen solution. Finally, we will set up a functional test solution in a virtual environment.
@@ -52,8 +54,7 @@ At the end of the project, the system adopted should make it possible to:
 
 - Security Information and Event Management (SIEM) system for log ingestion and analysis.
 - Kali linux OS for the attack's simulation.
-- Telemetry generation tools to create realistic network traffic and attack scenarios.
-![Uploading image.png…]()
+- Telemetry generation tools to create realistic network traffic and attack scenarios
 
 ## Steps
 drag & drop screenshots here or use imgur and reference them using imgsrc
