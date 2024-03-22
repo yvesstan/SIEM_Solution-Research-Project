@@ -56,7 +56,7 @@ At the end of the project, the system adopted should make it possible to:
 - Kali linux OS for the attack's simulation.
 - Telemetry generation tools to create realistic network traffic and attack scenarios
 
-  ![](https://github.com/yvesstan/images/blob/main/nike-joyride.jpg)
+  
 
 ## Steps
 drag & drop screenshots here or use imgur and reference them using imgsrc
