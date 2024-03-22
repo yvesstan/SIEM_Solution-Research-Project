@@ -1,0 +1,119 @@
+Here are some requirements before implementing a SIEM solutions
+
+1- SIEM implementation requirements 
+SIEM solutions are often complex and there is a wide variety. Deploying them can be tricky, 
+especially in large organizations with hundreds or thousands of data sources. IT and security 
+teams can also be strained.
+Here are some tips to ensure a good implementation of a SIEM:
+- Plan the deployment carefully
+- Choose the object of monitoring
+- Pay attention to the existing security stack
+- Understand the pricing model
+- Determine the features you really need
+- Be aware that this will not replace the man
+- Recognize the limits
+- Test and adjust the solution
+- Find supplements
+
+1.1- Carefully plan the deployment
+Carefully planning your SIEM deployment can mean the difference between getting the most 
+out of this technology and adding unnecessary overhead to your organization. You'll have to 
+choose between different vendors, deployment models (on-premises, SaaS, hybrid), staffing 
+strategies, and more.
+Many organizations can benefit from a phased approach, starting with a small pilot project to 
+assess the desirability of a SIEM solution before moving to a larger deployment. These types 
+of solutions often require manual adjustments. False positives are extremely common, and a 
+poorly designed SIEM implementation can generate thousands of alerts that security teams 
+will be unable to track. Business leaders and managers need to be involved every step of the 
+way, from preparation to deployment.
+
+1.2- Choosing the object of monitoring
+Capturing data from a variety of sources is the foundation of SIEM tools. Ideally, you would 
+feed the solution with the widest variety of data possible, but that's not always feasible.
+Technical and budgetary constraints can lead to a limitation on the total amount of data that 
+the SIEM solution will ingest, along with difficult decisions about which logs to ignore. For 
+businesses where regulatory compliance is necessary, existing industry regulations or 
+frameworks may dictate the data to be collected.
+In general, it is recommended to ingest event logs from firewalls, file and directory servers, 
+intrusion detection/protection systems, and possibly endpoint security software. Additionally, 
+ingesting the logs of DNS servers your organization can greatly contextualize security 
+investigations and help spot sophisticated attacks. Don't forget about cloud services or 
+applications, which can be widely used.
+Typically, it should integrate and combine events from heterogeneous data streams, such as 
+those from on-premises data repositories, cloud sources, Active Directory, Azure AD, email, 
+DNS servers, VPNs, and Web proxies to add unique context to alerts, such as file sensitivity 
+and account type, making them more actionable than traditional SIEM alerts.
+
+1.3- Pay attention to the existing security stack
+All major SIEM tools offer various integrations, but the extent of these integrations and the 
+degree of difficulty in setting them up can vary greatly. When deciding on a SIEM tool, it is 
+essential to choose a product that is highly compatible with the unique combination of 
+products already used by your organization. Ignoring this factor can lead to increased 
+operational complexity and administrative burden. For example, choosing a SIEM product 
+that does not work well with your firewall can significantly limit the qualities of this tool.
+In many cases, SIEM integration is a hands-on operation, and it can take multiple steps to 
+complete. Keep this in mind when looking for a solution, as the cost of labor required to set 
+it up correctly can easily negate any cost savings promised by the supplier.
+
+1.4- Understanding the pricing model
+SIEM tool vendors have implemented various pricing models for their products. Some charge 
+by the number of users, others by the number of events, and still others use flat-rate or tiered 
+pricing models. It's critical that decision makers, both technical and business, understand how 
+these pricing models work and know which model makes the most sense for their 
+organization. In particular, per-event pricing models can lead to unpleasant surprises for 
+companies that don't carefully examine their existing environment.
+
+1.5- Determine the features you really need
+Many SIEM solutions are offered a la carte, allowing an organization to choose the features 
+or functionality that suits them best. Basic features, such as event log management and alerts, 
+are usually offered at the lowest level, but more advanced features may require additional 
+fees. Threat intelligence, automated remediation capabilities, and long-term data retention all 
+often cost more. It is important to perform a cost-benefit analysis not only for the SIEM 
+solution as a whole, but also for any planned expansion.
+
+1.6- Be aware that this will not replace the human being
+Increasingly, SIEM tools leverage automation and artificial intelligence to deliver new 
+capabilities and increased efficiency. However, this does not necessarily translate into a 
+reduced need for human talent. In fact, SIEM solutions can require a lot of human interaction 
+to resolve alerts, perform additional research if needed, and generally manage the solution. 
+Some tools may also require quite extensive training and specialized skills. If you're looking
+to cut costs with SIEM, it's unlikely to involve a small workforce.
+Even though the human element in the alerting process is not (yet) obsolete, SIEM helps 
+reduce the interactions and manual labor required to triage the huge volume of data security 
+events. DatAlert puts alerts in a larger context by linking users to devices and locations, 
+learning their behavior and overlaying additional information. For example: Is the user who 
+triggered the alert on a watchlist? Has it triggered any other alerts recently? Normally, does 
+he have access to sensitive data? This additional context allows you to quickly determine 
+whether an alert represents a real threat or a minor anomaly, without spending hours 
+assembling logs.
+
+1.7- Recognize the limits
+While SIEM tools provide great visibility across an organization, they often have “blind 
+spots”. Mobile devices, remote workers, and cloud applications are examples of areas where 
+SIEM often struggles. It is important that companies recognize these limitations and act 
+accordingly.
+Even in areas where SIEM is good, like network monitoring, it's not uncommon for the tools 
+to lack important contextual data. Remote access tools like VNC and TeamViewer are a great 
+example. It is easy to spot the network traffic generated by these tools, but without sufficient 
+context, a SIEM solution cannot distinguish a legitimate user from an attacker using the same 
+tool to exfiltrate data. A SIEM tool may also have difficulty detecting attacks that use 
+legitimate services, for example, malware that sends Command and Control (C&C) traffic 
+back to a server hosted on a Content Delivery Network (CDN) or a public cloud service.
+
+1.8- Test and adjust the solution
+Every day, new types of threats appear; it is therefore important to constantly assess your 
+defenses and address weak points. SIEM tools are no exception. The intervention of an 
+internal Red Team or an external penetration testing service can help you assess the real 
+effectiveness of your SIEM solution. New rules can then be added to respond to threats that 
+did not generate. Tools like Atomic Red Team and Caldera of MITRE can be used between 
+full penetration tests to analyze solution performance on an ongoing basis.
+Alert fatigue is a common problem in many security operations centers. If you don't set alert 
+thresholds appropriately, your analysts can get used to seeing false positives, to the point of 
+not reacting to a real threat. It's important to tune any SIEM solution to find a good balance 
+between excessive alerts and lack of visibility.
+
+1.9- Find complements
+Like all security products, SIEM tools should never be used exclusively or in place of other 
+types of protective measures. While SIEM platforms can increasingly take automated action 
+in response to certain types of events, they do not replace front-line defenses such as antivirus software and firewalls. SIEM tools are most effective when organizations already have 
+a well-designed information security program in place.
