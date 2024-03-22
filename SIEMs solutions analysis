@@ -1,0 +1,241 @@
+SIEMs-solutions-analysis
+
+Investigation and Analysis
+General study and analysis of SIEM
+1. Definition
+
+Security Information and Event Management (SIEM) systems are centralized systems that provide full visibility into your network activity, allowing you to respond to threats in real time. They collect, read and categorize machine data from a wide variety of sources, then analyze it to produce insights that will help you take action.
+It therefore enables the aggregation of event data from disparate sources within your network infrastructure: servers, systems, devices and applications, from the perimeter to the end user. Ultimately, a SIEM solution provides a centralized view of your infrastructure enriched with additional intelligence through the combination of context information about your users, assets and more.
+
+Threats detected by SIEMs fall into some of the following groups:
+
+• Vulnerabilities
+• Vulnerable protocols
+• Configuration failures by administrators
+• Introduction of errors by the user consciously or not
+• Internal threats
+• External threats
+
+In short, SIEMs allow us to collect, standardize and correlate security events, provide security management intelligence, rule out false positives, assess the impact of an attack, unify security management, centralize information and integrate security tools to detect threats and intruders.
+
+ 2. History of SIEM
+
+The term S.I.E.M. was designed in 2005 by Mark Nicolett and Amrit Williams, two GARTNER analysts. At the time, two types of complementary but distinct solutions managed information systems security data: S.E.M. and S.I.M. Mark Nicolett and Amrit Williams noted the obvious rapprochement of Log Management or S.I.M. tools. (Security Information Management, Security Information Management in French) and security event monitoring programs or S.E.M. (Security Event Manager, Security Event Management in French). These analyze network events in real time, then perform a correlation to detect the initial cause of the problem. They can then trigger the appropriate alert to the administrator who can correct the flaw, stop a process or close a port. Nicolett and Williams highlight the need to combine these two tools to better manage security and coin the term S.I.E.M. (Security Information and Event Management). The S.I.E.M. then becomes an active security tool. Since then, S.I.E.M. have evolved a lot. Compared to the 2005 definition, today we must add to the capabilities of S.I.E.M. combination capabilities with C.T.I. (Cyber ​​Threat Intelligence, information on cyber threats in French) or even Artificial Intelligence functionalities such as “machine learning” to improve detection capabilities.
+
+1.3.SIM, SEM and SIEM
+
+Two (02) bricks constitute a SIEM solution:
+❖ The first brick called SEM for Security Event Manager (Security Event 
+Management in French), allows the analysis of "logs" (event log in French) in 
+real time (or almost real) from security systems, networks, operations and 
+applications. The SEM also performs other actions:
+• It is able to process a very large volume of data in real time,
+• When it identifies suspicious events, it enriches them in a format dedicated to 
+intrusion detection,
+
+
+• It offers advanced real-time event correlation capabilities,
+• It has the necessary tools for monitoring and exploiting alerts,
+• Finally, it is capable of carrying out an “incident response” to internal and external 
+threats.
+❖ The second brick called SIM for Security Information Management 
+(Management of security information in French). Its role, on the other hand, is 
+to manage the history of traces, to provide reports in accordance with the 
+existing regulations within the company, and to monitor insider threats. The 
+SIM performs other actions such as:
+• It makes it possible to store very large volumes of unstructured raw data (generally 
+resulting from the breakdown of logs),
+• It sometimes proposes a standardization format but this format is generally very 
+simplistic,
+• It offers indexing and search capabilities for analysis and digital forensic purposes.
+By bringing these two functions together, SIEM systems speed up the identification and 
+analysis of security events, as well as the recovery that follows. They allow those responsible 
+for information system security to meet the legal requirements of corporate compliance. It is 
+possible to monitor the security of an information system with only a SIM module but it will 
+require more work and a stronger skill to analyze the data collected, or only with an SEM But 
+the absence of long-term storage can penalize for analysis and digital investigation. Today 
+the best insurance to detect the maximum number of anomalies, intrusion attempts or APT 
+(Advanced Persistent Threat, advanced persistent threats in French) is to combine SIM and 
+SEM functions in a single tool as modern SIEMs do. In practice, there are 3 types of SIEMs: 
+in-house SIEMs, cloud-based SIEMs, and managed/managed SIEMs
+
+1.4. How SIEMs work
+To enable the system to identify abnormal events, it is important that the SIEM administrator 
+first builds a profile of the system under normal operating conditions.
+At the simplest level, a SIEM system can be rule-based or use a statistical correlation engine 
+to establish relationships between event log entries. On some systems, pre-treatment may 
+occur at the headers. Only certain events are then transmitted to the centralized administration 
+node. This pre-processing makes it possible to reduce the volume of information 
+communicated and stored. However, this approach carries the risk of filtering out relevant 
+events early
+
+SIEMs allow
+
+1.4.1- Collection
+
+The principle of collection is to provide the SIEM with data to be processed. This data can be 
+of a diverse nature depending on the equipment or software, but also be sent in completely 
+different ways. There are two operating modes:
+• Mode active:most SIEMs work by deploying a multitude of collection agents in a 
+hierarchical manner on the equipment to be monitored. The function of these agents 
+is to retrieve information from user devices, servers, network equipment, and even 
+specialized security equipment, such as firewalls, or even antivirus and anti-intrusion 
+systems, and also security software. security and send them to the SIEM A security 
+element that has been designed natively to be a SIEM agent is called a “probe”;
+• Passive Mode:the SIEM listens directly to the equipment to be supervised. For this 
+method, it is the equipment or software that sends information without an 
+intermediary to the SIEM
+
+
+1.4.2- Standardization
+The information collected comes from heterogeneous equipment and software, most of which 
+have their own means of formatting the data. This step makes it possible to standardize the 
+information according to a single format to facilitate processing by the SIEM Formats are 
+developed by the IETF (Internet Engineering Task Force) in the form of RFCs (Request For 
+Comments, in English) to structure the security information and to be able to exchange and 
+process it more easily. This is why it makes more sense to list them:
+- IDMEF (Intrusion Detection Message Exchange Format) :
+It is a standard, defined in RFC 4765, allowing interoperability between commercial, free and 
+open source and research systems. It is based on XML format and is a format designed to 
+define security events and alerts. It is also suitable for database storage, display and 
+management of information.
+- IODEF (Incident Object Description and Exchange Format):
+It is a standard, defined in RFC 5070, representing the security information exchanged 
+between CSIRT teams. (Computer Security Incident Response Teams, in English). It is based 
+on XML (eXtensible Markup Language) and is a format designed to transmit security 
+incidents between administrative domains and parties with operational responsibility. This 
+data model encodes information about hosts, networks, services, etc.
+Normalization thus makes it possible to carry out multi-criteria searches, on a field or on a 
+date. It is these events that will be enriched with other data and then sent to the correlation 
+engine.
+
+1.4.3- Aggregation
+
+Aggregation is the first processing of security events. It consists of a grouping of security 
+events according to certain criteria. These criteria are generally defined through rules called 
+“aggregation rules” and apply to events having similarities. Several filter rules can be applied. 
+They are then aggregated according to the solutions, then sent to the correlation engine.
+
+
+1.4.4- Thecorrelation
+Correlation corresponds to the analysis of events according to certain criteria. These criteria 
+are generally defined through rules called “correlation rules”. The purpose of this step is to 
+establish relationships between events, in order to then be able to create correlation alerts, 
+security incidents, activity reports. The correlation differs on several points:
+• Self-learning and reported knowledge:In order to operate, correlation engines need 
+information about infrastructure systems and networks. This information can be 
+collected automatically and/or entered manually by an operator;
+• Real time and delayed data:In some cases, the raw events are forged and sent 
+directly to be correlated in real time. In other cases, the events are first stored, and 
+sent after a first processing (ex: aggregation), their sending can then be conditioned;
+• Active and passive correlation:The active correlation has the possibility of 
+supplementing the events received by collecting additional information to make 
+decisions. The passive correlation is a correlation that cannot interact with its 
+environment, it receives events and makes decisions.
+The correlation rules make it possible to identify an event which caused the generation of 
+several others (a hacker who entered the network, then manipulated such equipment, etc.). 
+They also make it possible to raise an alert via email, SMS or open a ticket if the SIEM 
+solution is interfaced with a ticket management tool
+
+
+1.4.5- The report
+
+SIEMs also make it possible to create and generate dashboards and reports. Thus, the various 
+players in the information system, information system security managers, administrators, 
+users can have visibility on the information system (number of attacks, number of alerts per 
+day, etc.).
+
+
+1.4.6-Archiving
+
+SIEM solutions are also used for legal and regulatory reasons. Archiving with probative value 
+guarantees the integrity of traces. The solutions can use encryption for example to guarantee 
+the integrity of the traces.
+
+
+1.4.7- Replay of events
+
+The majority of solutions also make it possible to replay old events to conduct post-incident 
+investigations. It is also possible to modify a rule and replay the events to see its behavior.
+
+2. Advantages and Disadvantages of SIEMs
+Admittedly, equipping yourself with a SIEM type solution requires a substantial investment 
+due to the complexity of its implementation. However, although initially intended for large 
+companies, SIEM offers advantages to all types of organizations:
+
+2.1- Advantages
+
+• Proactive Incident Detection
+A SIEM proves capable of detecting security incidents that would have gone unnoticed. For 
+a simple reason: the many hosts that record security events do not have incident detection 
+functions.
+The SIEM has this ability to detect thanks to its ability to correlate events. Unlike an intrusion 
+prevention system that identifies an isolated attack, SIEM looks beyond it. The correlation 
+rules allow him to identify an event that caused the generation of several others (attack 
+through the network, then manipulation on a specific device, etc.). In such cases, most 
+solutions have the ability to act indirectly on the threat. The SIEM communicates with other 
+security tools implemented in the company and pushes a modification in order to block the 
+malicious activity. As a result, attacks that would otherwise go unnoticed in the enterprise are 
+thwarted.
+To go even further, an organization can choose to integrate a “Cyber Threat Intelligence” 
+(CTI, intelligence on cyber threats, in French) into its SIEM. According to GARTNER's 
+definition, CTI is "evidence-based knowledge, including context, mechanisms, indicators, 
+implications, and actionable advice, regarding a new or existing threat or risk to a company's 
+assets. organization that can be used to inform decisions regarding the subject's response to 
+that threat or hazard”. The CTI therefore consists of collecting and organizing all the 
+
+
+information related to threats and cyber-attacks, in order to draw a portrait of the attackers or 
+to highlight trends (sectors of activity targeted, attack methods used, etc.).
+• Compliance and reporting
+At a time when there are more and more cybersecurity standards and certifications, SIEM is 
+becoming a key element of any information system. It is a relatively simple way to meet 
+several security requirements (eg: historization and monitoring of logs, security reports, 
+alerting, etc.). Especially since SIEM can generate highly customizable reports according to 
+the requirements of different regulations. This benefit alone is enough to convince 
+organizations to deploy a SIEM And for good reason: the generation of a single report dealing 
+with all relevant security events regardless of the source of the log files (also generated in 
+proprietary formats) saves precious time.
+• Improved incident management activities
+A SIEM also contributes to a better reaction to incidents. Having a SIEM is the assurance of 
+quickly identifying threats and reducing the reaction time with reduced resources. Again, it 
+is the overview of security events received from applications, operating systems and various 
+security devices that allows the identification of potential attacks and compromises. Note that 
+SIEM solutions also integrate user and entity behavior analysis features. Valuable features to 
+help businesses detect threats from people and software.
+SIEM solutions do not only have advantages. They also have drawbacks.
+
+2.2- Disadvantages
+
+Deploying a SIEM is not enough to completely secure your organization. SIEM solutions 
+have limits that do not make them optimal without adequate support and without third-party 
+solutions. Unlike an IPS or Firewall type security solution, a SIEM does not monitor security 
+events but uses the log file data recorded by them. It is therefore essential not to neglect the 
+implementation of these solutions.
+• A configuration that is sometimes too complex
+SIEMs are complex products that require support to ensure successful integration with 
+enterprise security controls and the many hosts in its infrastructure. It is important not to settle 
+for installing a SIEM with the manufacturer's and/or default configurations, as these 
+CENTRALIZED MANAGEMENT OF SECURITY EVENTS WITH WAZUH
+
+configurations are often insufficient. They must be personalized and adapted to the needs of 
+the users.
+• Deployment costs that can be high
+Realizing the functions of SIEMs in relation to security events is a task that seems relatively 
+simple. However, collecting, storing and running compliance reports, applying patches and 
+analyzing all security events occurring on a company's network is not easy. Size of storage 
+media, computer power for processing information, integration time for security equipment, 
+setting up alerts, etc. The initial investment can be counted in hundreds of thousands FCFA 
+to which must be added the annual support, in the event that a paid solution is adopted. 
+Integrating, configuring and analyzing reports requires expert skills.
+• A large volume of alerts to regulate
+SIEM solutions typically rely on rules to analyze all recorded data. However, a company's 
+network generates a very large number of alerts (on average 10,000 per day) which may or 
+may not be positive. As a result, identifying potential attacks is complicated by the volume 
+of irrelevant log files. The solution consists in defining precise rules and the perimeter to be 
+monitored: what should be monitored in priority? The internal? Network/system/application? 
+Which technology to prioritize? Etc. Due to the large volume of alerts to be regulated, trained 
+personnel or a dedicated team are required to view logs, perform regular reviews and extract 
+relevant reports
+
+
