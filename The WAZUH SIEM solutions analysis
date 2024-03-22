@@ -1,0 +1,96 @@
+After analysis for my research project I've decided to choose Wazuh + ELK Stack for several reasons:
+
+- It is open source and you would only pay for cloud support or monitoring, but not the one we 
+need as we are looking for a solution.
+- It is not a limited release (as with OSSIM, Prelude OSS or SIEMonster). It has all the features.
+- It is based on a recognized prestige HIDS, such as OSSEC.
+- Up-to-date and very complete online documentation.
+- Easily scalable cluster, both Wazuh and ELK Stack.
+- Above all, it meets all the requirements given in the section
+
+Specific analysis of the chosen SIEM: Wazuh + ELK Stack
+
+**** Wazuh Abilities ****
+
+Wazuh provides the following features:
+
+• Security analysis
+Wazuh is used to collect, aggregate, index and analyze security data, helping organizations 
+detect intrusions, threats and behavioral anomalies.
+As cyber threats become more sophisticated, real-time security monitoring and analysis is 
+required for rapid threat detection and remediation. That's why our lightweight agent provides 
+the necessary monitoring and response capabilities, while our server component provides 
+security intelligence and performs data analysis.
+
+• Intrusion detection
+Wazuh agents scan monitored systems for malware, rootkits and suspicious anomalies. They 
+can detect hidden files, hidden processes or unregistered network listeners, as well as 
+inconsistencies in responses to system calls.
+In addition to the agent's capabilities, the server component uses a signature-based approach 
+to intrusion detection, using its regular expression engine to analyze collected log data and 
+search for indicators of compromise.
+
+• Log data analysis
+Wazuh agents read operating system and application logs, and transmit them securely to a 
+central manager for analysis and storage based
+on rules.Wazuh rules notify you of application or system errors, misconfigurations, successful 
+malicious attempts and/or activities, policy violations, and a variety of other security and 
+operational issues.
+
+• File integrity monitoring
+Wazuh monitors the file system, identifying changes in file content, permissions, ownership, 
+and attributes that you need to monitor. Additionally, it natively identifies users and 
+applications used to create or modify files.
+File integrity monitoring capabilities can be used in combination with threat intelligence to 
+identify threats or compromised hosts. Additionally, several regulatory compliance standards, 
+such as PCI DSS, require it.
+
+• Vulnerability detection
+Wazuh agents extract software inventory data and send this information to the server, where 
+it is correlated with continuously updated Common Vulnerabilities and Exposure (CVE) 
+databases, to identify well-known vulnerable software.
+Automated vulnerability assessment helps you find weak spots in your critical assets and take 
+corrective action before attackers exploit them to sabotage your business or steal confidential 
+data.
+
+• Configuration Assessment
+Wazuh monitors system and application configuration settings to ensure they comply with 
+your security policies, standards, and/or hardening guides. Agents perform periodic scans to 
+detect applications known to be vulnerable, unpatched, or configured insecurely.
+Additionally, configuration controls can be customized, tailoring them to properly align with 
+your organization. Alerts include recommendations for best configuration, benchmarks, and 
+mapping to regulatory compliance.
+
+• Incident Response
+Wazuh provides out-of-the-box active responses to perform various countermeasures to deal 
+with active threats, such as blocking access to a system from the source of the threat when 
+certain criteria are met.
+Additionally, Wazuh can be used to remotely execute system commands or queries, 
+identifying Indicators of Compromise (IOCs), and assisting with other live forensic or 
+incident response tasks.
+
+• Regulatory conformity
+Wazuh provides some of the security controls needed to comply with industry standards and 
+regulations. These features, combined with its scalability and cross-platform support, help 
+organizations meet technical compliance requirements.
+Wazuh is widely used by payment processing companies and financial institutions to meet 
+PCI DSS (Payment Card Industry Data Security Standard) requirements. Its web-based user 
+interface provides reports and dashboards that can help with this and other regulations such 
+as GDPR, NIST 800-53, GPG13, TSC SOC2, and HIPAA.
+
+• Cloud Security
+Wazuh helps monitor cloud infrastructure at the API level, using integration modules capable 
+of extracting security data from well-known cloud providers, such as Amazon AWS, Azure.
+or Google Cloud. Additionally, Wazuh provides rules to assess the configuration of your 
+cloud environment, easily spotting weaknesses.
+Additionally, lightweight, cross-platform Wazuh agents are commonly used to monitor 
+instance-level cloud environments.
+
+• Container Security
+Wazuh provides security visibility into your Docker hosts and containers, monitoring their 
+behavior and detecting threats, vulnerabilities, and anomalies. Wazuh agent has native 
+integration with Docker engine allowing users to monitor images, volumes, network settings 
+and running containers.
+Wazuh continuously collects and analyzes detailed execution information. For example, 
+alerting for containers running in privileged mode, vulnerable applications, a shell running 
+inside a container, changes to persistent volumes or images, and other possible threats.
