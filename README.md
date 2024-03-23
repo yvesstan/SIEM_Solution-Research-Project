@@ -63,8 +63,20 @@ At the end of the project, the system adopted should make it possible to:
 ### ![DEPLOYMENT METHODS](https://github.com/yvesstan/Research-Lab/blob/main/DEPLOYMENT%20METHODS.pdf)
 ### ![USE CASES](https://github.com/yvesstan/Research-Lab/blob/main/USE%20%20CASES.pdf)
 
-Every screenshot should have some text explaining what the screenshot is about.
+## Conclusions & Prospects
+Cybersecurity is a discipline of primary importance because the information system is an absolutely vital element for any company.
+Information technology is becoming more and more embedded in society, the incentives to compromise the security of deployed computer systems are increasing. These cyberattacks can destabilize an institution and cause colossal economic loss.
+The dangers of today's cyberattack mean that the relevant question for companies is not whether they will be attacked or not, but when it will happen, which makes upstream protection essential. With an open-source security solution, companies no longer have any excuse against cyberattacks.
+The main objective of this work was to set up a solution for centralized management of logs and security events of an information system.
+In this project we have set up the WAZUH platform which is both a SIEM and an XDR allowing the collection, processing, storage and finally the visualization of log files. This allowed us to exploit the visualizations and dashboards of the Kibana interface to monitor the state of the network as well as the activity of equipment and machines in order to avoid breakdowns and attacks on the one hand, and save time and money on the other hand.
+At the end of our project, we were able to achieve our objectives, i.e. to set up an open source solution allowing the management of the security of our system, our system met our expectations since there was no impact on performance. network and system was noticed.
+This implementation was of great importance to us and it served as an arcade that introduced us to the professional world. Especially since it was an opportunity to implement our technical knowledge learned during our studies.
+He taught us on a technical level to be better able to protect our guests and to recommend safety measures to others.
 
-Example below.
-
-*Ref 1: Network Diagram*
+From a general point of view, this project has enabled us to acquire considerable knowledge and to improve our ability to communicate, collaborate and adapt to the professional environment.
+In terms of perspectives, improvements are possible to increase the performance of this solution, therefore we would like to introduce more components to our system architecture and integrate an intrusion prevention system into our WAZUH tool.
+ 
+We also want to integrate a system that will alert the company's IT system managers by SMS each time a new intrusion, anomaly or attack is detected on the system and also set up a document specifying a set of actions to take when an attack or intrusion is detected by WAZUH. This document will allow better management of incidents listed within the company's computer system.
+The addition of other security modules to our solution could also allow the establishment of a defense in depth mechanism in order to harden the security of information systems.
+At the end of this work, we were able to acquire knowledge and experience in computer security. Indeed, as part of this work, we have developed our knowledge in the use of free tools and open-source codes. We familiarized ourselves with the free software WAZUH and we learned how to control the various aspects of the computer security by integrating several solutions and by acting vis-a-vis the multiple problems encountered. These achievements can be directly applied to choices of integration and design in the professional environment.
+We therefore hope that this project is the beginning of a professional insertion and a guide for all those who are interested in the world of cybersecurity.
