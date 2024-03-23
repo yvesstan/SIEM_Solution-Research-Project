@@ -59,7 +59,9 @@ At the end of the project, the system adopted should make it possible to:
   
 
 ## Steps
-### DEPLOYMENT METHODS ![DEPLOYMENT METHODS](https://github.com/yvesstan/Research-Lab/blob/main/DEPLOYMENT%20METHODS.pdf)
+
+### ![DEPLOYMENT METHODS](https://github.com/yvesstan/Research-Lab/blob/main/DEPLOYMENT%20METHODS.pdf)
+### ![](https://github.com/yvesstan/Research-Lab/blob/main/USE%20%20CASES.pdf)
 
 Every screenshot should have some text explaining what the screenshot is about.
 
