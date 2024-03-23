@@ -59,7 +59,7 @@ At the end of the project, the system adopted should make it possible to:
   
 
 ## Steps
-drag & drop screenshots here or use imgur and reference them using imgsrc
+### DEPLOYMENT METHODS ![DEPLOYMENT METHODS](https://github.com/yvesstan/Research-Lab/blob/main/DEPLOYMENT%20METHODS.pdf)
 
 Every screenshot should have some text explaining what the screenshot is about.
 
