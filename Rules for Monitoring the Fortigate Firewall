@@ -1,0 +1,230 @@
+•	Rule 1:
+First of all, we activate the collection of logs by changing the 'no' option in the configuration file /var/ossec/etc/ossec.conf in the <global> section of the <alerts_log> tag <alerts_log> by ' Yes', then copy the following rule to indicate to or forward the logs of our firewall:
+<remote>
+<connection>syslog</connection>
+<port>514 </port>
+<protocol>udp</protocol>
+<allowed_ips>firewallipaddress</allowed_ips>
+<local_ip>ipdusiemaddress</local_ip>
+</remote>
+
+
+Then we create the custom_fortigate_decoders.xml file at /var/ossec/etc/decoders/ where we will copy the set of rules below:
+
+<decoder name="fortigate-custom">
+<prematch>^date=\d\d\d\d-\d\d-\d\d time=\d\d:\d\d:\d\d devname=</prematch>
+ 
+</decode>
+
+
+<decoder name="fortigate-custom1">
+<parent>fortigate-custom</parent>
+<regex>^date=(\d\d\d\d-\d\d-\d\d) time=(\d\d:\d\d:\d\d) devname=</regex>
+<order>date, time, script</order>
+</decode>
+
+
+<decoder name="fortigate-custom1">
+<parent>fortigate-custom</parent>
+<regex offset="after_regex">"(\S+)" devid="(\S+)" logid="(\S+)" type="(\S+)" subtype="(\S+)"
+</regex>
+<order>devname, devid, logid, type, subtype</order>
+</decode>
+
+
+<decoder name="fortigate-custom1">
+<parent>fortigate-custom</parent>
+<regex offset="after_regex"> eventtype="(\S+)"</regex>
+<order>eventtype</order>
+</decode>
+
+
+<decoder name="fortigate-custom1">
+<parent>fortigate-custom</parent>
+<regex offset="after_regex">level="(\S+)" </regex>
+<order>level</order>
+</decode>
+
+
+<decoder name="fortigate-custom1">
+<parent>fortigate-custom</parent>
+<regex offset="after_regex">vd="(\S+)" </regex>
+<order>vd</order>
+</decode>
+
+
+<decoder name="fortigate-custom1">
+<parent>fortigate-custom</parent>
+<regex offset="after_regex">eventtime=(\S+) </regex>
+<order>eventtime</order>
+</decode>
+
+
+<decoder name="fortigate-custom1">
+ 
+<parent>fortigate-custom</parent>
+<regex offset="after_regex">srcip=(\S+) srcport=(\S+) srcintf="(\S+)" srcintfrole="(\S+)" dstip=(\S+) dstport=(\S+) dstintf= "(\S+)" dstintfrole="(\S+)" </regex>
+<order>srcip, srcport, srcintf, srcintfrole, dstip, dstport, dstintf, dstintfrole</order>
+</decode>
+
+
+<decoder name="fortigate-custom1">
+<parent>fortigate-custom</parent>
+<regex	offset="after_regex">srcip=(\S+)	srcname="(\S+)"	srcport=(\S+)	srcintf="(\S+)" srcintfrole="(\S+)" dstip=(\S+) dstport=(\S+) dstintf="(\S+)" dstintfrole="(\S+)" </regex>
+<order>srcip,srcname,srcport,srcintf,srcintfrole,dstip,dstport,dstintf,dstintfrole</order>
+</decode>
+
+
+<decoder name="fortigate-custom1">
+<parent>fortigate-custom</parent>
+<regex offset="after_regex">srcip=(\S+) dstip=(\S+) srcport=(\S+) dstport=(\S+) srcintf="(\S+)" srcintfrole="(\S+)" dstintf= "(\S+)" dstintfrole="(\S+)" </regex>
+<order>srcip,dstip,srcport,dstport,srcintf,srcintfrole,dstport,dstintf,dstintfrole</order>
+</decode>
+
+
+<decoder name="fortigate-custom1">
+<parent>fortigate-custom</parent>
+<regex offset="after_regex">srcip=(\S+) dstip=(\S+) srcport=(\S+) dstport=(\S+) </regex>
+<order>srcip, dstip, srcport, dstport</order>
+</decode>
+
+
+<decoder name="fortigate-custom1">
+<parent>fortigate-custom</parent>
+<regex offset="after_regex">srcip="(\S+)"|srcip=(\S+) </regex>
+<order>srcip</order>
+</decode>
+
+
+<decoder name="fortigate-custom1">
+<parent>fortigate-custom</parent>
+<regex offset="after_regex">dstip=(\S+) </regex>
+<order>dstip</order>
+</decode>
+
+
+<decoder name="fortigate-custom1">
+<parent>fortigate-custom</parent>
+ 
+<regex offset="after_regex">action="(\S+)" </regex>
+<order>action</order>
+</decode>
+
+
+<decoder name="fortigate-custom1">
+<parent>fortigate-custom</parent>
+<regex offset="after_regex">status="(\S+)" </regex>
+<order>status</order>
+</decode>
+
+
+<decoder name="fortigate-custom1">
+<parent>fortigate-custom</parent>
+<regex offset="after_regex">msg="(\.+)"$</regex>
+<order>msg</order>
+</decode>
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Rule 2:
+We create the custom_fortigate_rules.xml file at the path /var/ossec/etc/rules/ in which we copy the following set of rules:
+<group name="fortigate,syslog,">
+<rule id="222000" level="0">
+<decoded_as>fortigate-custom</decoded_as>
+<description>Fortigate messages grouped.</description>
+</rule>
+
+
+<rule id="222014" level="4">
+<if_sid>222000</if_sid>
+<status>dpd_failure</status>
+<description>Fortigate: IP Sec DPD Failed.</description>
+<group>firewall_drop,pci_dss_1.4,gdpr_IV_35.7.d,hipaa_164.312.a.1,nist_800_53_SC.7,</group>
+</rule>
+
+
+<rule id="222015" level="7" frequency="18" timeframe="45" ignore="240">
+<if_matched_sid>222014</if_matched_sid>
+<same_source_ip />
+<description>Fortigate: Multiple Firewall drop events from same source.</description>
+<group>multiple_drops,pci_dss_1.4,pci_dss_10.6.1,gdpr_IV_35.7.d,hipaa_164.312.a.1,hipaa_164.312.b,nist_ 800_53_SC.7,nist_800_53_AU.6,</group>
+</rule>
+ 
+
+<rule id="222016" level="4">
+<if_sid>222000</if_sid>
+<action>login</action>
+<status>failed</status>
+<description>Fortigate: Login failed.</description>
+<group>authentication_failed,invalid_login,pci_dss_10.2.4,pci_dss_10.2.5,gpg13_7.1,gdpr_IV_35.7.d,gdpr_I V_32.2,hipaa_164.312.b,nist_800_53_AU.14,nist_800_53_AC.7 ,</group>
+</rule>
+
+
+<rule id="222017" level="7" frequency="18" timeframe="45" ignore="240">
+<if_matched_sid>222016</if_matched_sid>
+<same_source_ip />
+<options>alert_by_email</options>
+<description>Fortigate: Multiple failed login events from same source.</description> authentication_failures _53_AU.14,nist_800_53_AC.7,< /group>
+</rule>
+
+
+<rule id="222022" level="3">
+<if_sid>222000</if_sid>
+<action>Edit</action>
+<description>Fortigate: Firewall configuration changes</description>
+<group>pci_dss_10.6.1,gpg13_4.13,gdpr_IV_35.7.d,hipaa_164.312.b,nist_800_53_AU.6,</group>
+</rule>
+
+
+<rule id="222023" level="4" frequency="18" timeframe="45" ignore="240">
+<if_matched_sid>222000</if_matched_sid>
+<same_source_ip />
+<description>Fortigate: Multiple Firewall edit events from same source.</description>
+<group>pci_dss_10.6.1,gpg13_4.13,gdpr_IV_35.7.d,hipaa_164.312.b,nist_800_53_AU.6,</group>
+</rule>
+
+
+<rule id="222024" level="4">
+<if_sid>222000</if_sid>
+<action>error</action>
+<description>Fortigate error message</description>
+</rule>
+
+
+<rule id="222026" level="3">
+<if_sid>222000</if_sid>
+ 
+<match>ui</match>
+<status>successful</status>
+<action>login</action>
+<description>Fortigate: User successfully logged into firewall interface.</description>
+<group>pci_dss_10.6.1,gpg13_7.1,gpg13_7.2,gdpr_IV_32.2,hipaa_164.312.b,nist_800_53_AU.6,</group>
+</rule>
+
+
+<rule id="222027" level="4" frequency="18" timeframe="45" ignore="240">
+<if_matched_sid>222000</if_matched_sid>
+<same_source_ip />
+<description>Fortigate: Multiple Firewall login events from same source.</description>
+<group>pci_dss_10.6.1,gpg13_7.1,gpg13_7.2,gdpr_IV_35.7.d,hipaa_164.312.b,nist_800_53_AU.6,</group>
+</rule>
+
+
+<rule id="222028" level="11">
+<if_sid>222000</if_sid>
+<match>attack</match>
+<action>detected</action>
+<description>Fortigate Attack Detected</description>
+<group>attack,gdpr_IV_35.7.d,</group>
+</rule>
+
+
+<rule id="222029" level="3">
+<if_sid>222000</if_sid>
+<match>attack</match>
+<action>dropped</action>
+<description>Fortigate Attack Dropped</description>
+<group>attack,gdpr_IV_35.7.d,</group>
+</rule>
+</group>
+
